@@ -1,20 +1,39 @@
 form {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 
 input {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 button.inscription {
-    margin-top: 8px;
-    margin-bottom: 8px;
+  margin-top: 8px;
 }
 
+/* tips */
 textarea {
-    resize: none;
+  resize: none;
+}
+
+table {
+  border-collapse: collapse;
+  min-width: 1280px;
+  width: 95%;
+}
+
+table tr td {
+  text-align: center;
+}
+
+td,
+th {
+  padding: 5px;
+}
+
+table tr,
+table tr td {
+  border: 2px solid grey;
 }

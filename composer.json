@@ -1,5 +1,5 @@
 {
-    "name": "hp/mon-ecommerce",
+    "name": "christophe/mon-ecommerce",
     "require": {
         "vlucas/phpdotenv": "^5.5"
     }

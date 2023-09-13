@@ -1,7 +1,8 @@
-<!-- toutes nos fonctions -->
-<!-- Execution requête -->
+<!-- Toutes nos fonctions -->
+<!-- Execution requêtes -->
 <?php
-function executeRequete($req) {
+function executeRequete($req)
+{
     global $mysqli;
     try {
         $resultat = $mysqli->query($req);
@@ -13,16 +14,34 @@ function executeRequete($req) {
         return $e;
     }
 }
-// Affichage de notre debogage
-function debug($var, $mode = 1) {
-    echo '<div style="background: orange; padding: 5px; float: right; clear: both; ">';
+// Affichage de notre débogage
+function debug($var, $mode = 1)
+{
+    echo '<div style="background: lightgrey; padding: 5px; float: right; clear: both; ">';
     $trace = debug_backtrace();
     $trace = array_shift($trace);
-    echo 'Debug demandé dans le fichier : ' .  $trace["file"]  . ' à la ligne ' . $trace["line"] . ".";
-    if($mode === 1) {
-        echo '<pre>'; print_r($var); echo '</pre>';
+    echo "Debug demandé dans le fichier : $trace[file] à la ligne $trace[line].";
+    if ($mode === 1) {
+        echo '<pre>';
+        print_r($var);
+        echo '</pre>';
     } else {
-        echo '<pre>'; var_dump($var); echo '</pre>';
+        echo '<pre>';
+        var_dump($var);
+        echo '</pre>';
     }
     echo '</div>';
+}
+// Savoir si un internaute est connecté
+function internauteEstConnecte()
+{
+    if (!isset($_SESSION['membre'])) {
+        return false;
+    } else return true;
+}
+// Savoir si un internaute est connecté et est administrateur
+function internauteEstConnecteEtEstAdmin()
+{
+    if (internauteEstConnecte() && $_SESSION['membre']['statut'] == 1) return true;
+    else return false;
 }
